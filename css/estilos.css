@@ -1,0 +1,94 @@
+h1{
+    text-align: center;
+    margin-top: 20px;
+}
+
+.piedepagina {
+    background-color:#f38322;
+    padding-top: 30px;
+}
+
+.contacto {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    padding-bottom: 15px;
+
+   
+}
+
+.contacto h4 {
+    margin: 0 35px;
+    font-weight: bold;
+    color: #d9d9c9;
+}
+
+.contacto a {
+    color: white;
+    padding: 10px 40px 0px 40px;
+}
+
+.contacto a:hover{
+    color: #c8a155;
+}
+
+.comparte {
+    text-align: center;
+    font-weight: bold;
+    color: #d9d9c9;
+}
+
+.redes-sociales{
+    display: flex;
+    justify-content:space-around;
+    margin: 0 126px;
+    margin-top: 17px;
+    margin-bottom: 10px;
+
+    
+}
+
+.redes-sociales a {
+    font-size: 15px;
+    color: white;
+}
+
+.redes-sociales a:hover{
+    color: #c8a155;
+}
+
+.ubi {
+    text-align: center;
+
+    
+}
+
+.ubi h4 {
+    font-weight: bold;
+    color: #d9d9c9;
+}
+
+.ubi a {
+    font-family:'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    color: white;
+}
+
+.ubi a:hover{
+    color: #c8a155;
+}
+
+
+
+.copy {
+    background-color: #262626;
+
+    
+}
+
+.copy h4 {
+    color: white;
+    text-align: center;
+    font-size: 12px;
+    margin-top: 5px;
+    font-family:'Courier New', Courier, monospace;
+}
