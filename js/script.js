@@ -131,7 +131,16 @@ function buscarPokemones() {
 
       return transformarNombre == "" ?  lista(listaPokemon) : transformarNombre.includes(nombrePokemon);
 
+      /* if (transformarNombre == ""){
+        return lista(listaPokemon); 
+      }else if (transformarNombre !== ""){
+        return transformarNombre.includes(nombrePokemon);
+      }*/
+
+
   })
+
+
 
   filtrarPokemones.forEach(function(elemento) {
 

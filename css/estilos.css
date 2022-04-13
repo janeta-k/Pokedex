@@ -3,6 +3,11 @@ h1{
     margin-top: 20px;
 }
 
+
+.bg-light {
+    background-color: #ffc500 !important; /*#DC143C */
+}
+
 .piedepagina {
     background-color:#f38322;
     padding-top: 30px;
