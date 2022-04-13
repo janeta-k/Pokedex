@@ -11,7 +11,7 @@ function getlistaPokemon(){
     recorrerPokemon()
     addToFavClicked(id)
     recorreFav(favoritos)
-    
+
   })
 
 }
@@ -30,22 +30,22 @@ function recorrerPokemon(){
   listaPokemon.forEach(elemento => {
 
     const content = `<div class="card  mb-2 ml-2" style="width: 18rem;">
-        <img class="card-img-top" src="${elemento.img}">
+        <img class="card-img-top" style="width:150px; display:block;margin:auto;" src="${elemento.img}">
         <div class="card-body text-center">
           <h5 class="card-title">${elemento.name}</h5>
           <p class="card-text">Tipo: ${elemento.type}</p>
           <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal" onclick="detalles(${elemento.id})">Ver detalles</button>
-          
-          <a href="#" class="card-button btn btn-primary" onclick="addToFavClicked(${elemento.id})">Añadir a favoritos</a>        
 
-        </div>         
+          <a href="#" class="card-button btn btn-primary" onclick="addToFavClicked(${elemento.id})">Añadir a favoritos</a>
+
+        </div>
       </div>`;
       cardPokemon.innerHTML += content;
-    
+
   })
 };
 
-//Modal con los detalles de los pokemones 
+//Modal con los detalles de los pokemones
 
 function detalles(id){
 
@@ -56,36 +56,36 @@ function detalles(id){
   let evolution = document.querySelector('.evolution');
 
   const object = listaPokemon.find(pokemon=>pokemon.id==id);
-  
+
   modalTitle.innerHTML = object.name;
-  height.innerHTML = (`altura: ${object.height}`); 
+  height.innerHTML = (`altura: ${object.height}`);
   weight.innerHTML = (`peso: ${object.weight}`);
   weaknesses.innerHTML = (`debilidades: ${object.weaknesses}`);
   evolution.innerHTML += object.next_evolution.map(elemento => `${elemento.name} `) ;
-  
+
   console.log (object)
 
 
-  console.log(id) 
+  console.log(id)
 }
 
 
 
 //sección de FAVORITOS
-function addToFavClicked(id){ 
-   
+function addToFavClicked(id){
+
   const encontrar= listaPokemon.find(listaPokemon=>listaPokemon.id==id);
-  
+
   const boolean= favoritos.some(listaPokemon=>listaPokemon.id==id);
   console.log(boolean)
   if (boolean){
     encontrar.num += 1;
-   
 
-      
+
+
   }else{
       favoritos.push(encontrar);
-      
+
 
   }
 }
@@ -97,38 +97,38 @@ function recorreFav(){
   favoritos.forEach(elemento => {
 
     const content = `<div class="card mb-2 ml-2" style="width: 18rem;">
-        <img class="card-img-top" src="${elemento.img}">
+        <img class="card-img-top" style="width:150px; display:block;margin:auto; src="${elemento.img}">
         <div class="card-body text-center">
           <h5 class="card-title">${elemento.name}</h5>
           <p class="card-text">Tipo: ${elemento.type}</p>
           <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal" onclick="detalles(${elemento.id})">Ver detalles</button>
-          
-          <a href="#" class="card-button btn btn-primary" onclick="addFavoritos(${elemento.id})">Añadir a favoritos</a>        
 
-        </div>         
+          <a href="#" class="card-button btn btn-primary" onclick="addFavoritos(${elemento.id})">Añadir a favoritos</a>
+
+        </div>
       </div>`;
       cardPokemon.innerHTML += content;
-    
+
   })
 }
 
 
-//busqueda 
+//busqueda
 
 function buscarPokemones() {
 
   cardPokemon.innerHTML = ""
-  
+
   const buscarPokemon= document.getElementById("busqueda").value;
-  
+
   const nombrePokemon = buscarPokemon.toLowerCase();
-  
+
 
   const filtrarPokemones = listaPokemon.filter(elemento => {
       const nuevoNombre = elemento.name
       const transformarNombre = nuevoNombre.toLowerCase();
       console.log(transformarNombre)
-      
+
       return transformarNombre == "" ?  lista(listaPokemon) : transformarNombre.includes(nombrePokemon);
 
   })
@@ -136,7 +136,7 @@ function buscarPokemones() {
   filtrarPokemones.forEach(function(elemento) {
 
       const content = `<div class="card mb-2 ml-2" style="width: 18rem;">
-      <img class="card-img-top" src="${elemento.img}"  alt="...">
+      <img class="card-img-top" style="width:150px; display:block;margin:auto; src="${elemento.img}"  alt="...">
       <div class="card-body text-center">
         <h5 class="card-title">${elemento.name}</h5>
         <p class="card-text">${elemento.type}</p>
@@ -147,7 +147,7 @@ function buscarPokemones() {
     cardPokemon.innerHTML += content;
 
   }
-  ) 
+  )
 
 }
 
