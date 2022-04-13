@@ -53,7 +53,7 @@ function detalles(id){
   let height = document.querySelector('.height');
   let weight = document.querySelector('.weight');
   let weaknesses = document.querySelector('.weaknesses');
-  let evolution = document.querySelector('.evolution');
+  //let evolution = document.querySelector('.evolution');
 
   const object = listaPokemon.find(pokemon=>pokemon.id==id);
 
@@ -61,7 +61,7 @@ function detalles(id){
   height.innerHTML = (`altura: ${object.height}`);
   weight.innerHTML = (`peso: ${object.weight}`);
   weaknesses.innerHTML = (`debilidades: ${object.weaknesses}`);
-  evolution.innerHTML += object.next_evolution.map(elemento => `${elemento.name} `) ;
+  //evolution.innerHTML += object.next_evolution.map(elemento => `${elemento.name} `) ;
 
   console.log (object)
 
@@ -97,7 +97,7 @@ function recorreFav(){
   favoritos.forEach(elemento => {
 
     const content = `<div class="card mb-2 ml-2" style="width: 18rem;">
-        <img class="card-img-top" style="width:150px; display:block;margin:auto; src="${elemento.img}">
+        <img class="card-img-top" style="width:150px; display:block;margin:auto;" src="${elemento.img}">
         <div class="card-body text-center">
           <h5 class="card-title">${elemento.name}</h5>
           <p class="card-text">Tipo: ${elemento.type}</p>
@@ -140,12 +140,10 @@ function buscarPokemones() {
 
   })
 
-
-
   filtrarPokemones.forEach(function(elemento) {
 
       const content = `<div class="card mb-2 ml-2" style="width: 18rem;">
-      <img class="card-img-top" style="width:150px; display:block;margin:auto; src="${elemento.img}"  alt="...">
+      <img class="card-img-top" style="width:150px; display:block;margin:auto;" src="${elemento.img}"  alt="...">
       <div class="card-body text-center">
         <h5 class="card-title">${elemento.name}</h5>
         <p class="card-text">${elemento.type}</p>
@@ -159,6 +157,22 @@ function buscarPokemones() {
   )
 
 }
+
+//loading pokebola
+
+
+function myFunction() {
+  var myVar;
+  myVar = setTimeout(showPage, 3000);
+}
+myFunction()
+
+function showPage() {
+  document.getElementById("loader").style.display = "none";
+  document.getElementById("myDiv").style.display = "block";
+}
+
+
 
 
 
