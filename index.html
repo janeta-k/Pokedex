@@ -74,7 +74,9 @@
 
     <div class="col-xs-12 col-sm-12">
       <div class="d-flex justify-content-center mb-4 mt-4">
-        <input id="busqueda" type="search" placeholder="Busca un Pokémon" aria-label="Search" onkeydown="return /[a-z]/i.test(event.key)">
+        <input id="busqueda" type="search" placeholder="Busca un Pokémon" aria-label="Search" onkeydown="validacion()">
+        <!--onkeydown="return /[a-z]/i.test(event.key)"-->
+        <!--onkeydown="validacion()"-->
         <button onclick="buscarPokemones()" class="btn btn-outline-success" type="submit">Buscar</button>
       </div>
 

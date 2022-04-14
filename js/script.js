@@ -144,12 +144,28 @@ function buscarPokemones() {
   })
 }
 
+
+//validación del input
+
+function validacion() {
+  const inputBusqueda = document.getElementById('busqueda').value;
+  console.log(typeof(inputBusqueda))
+
+  if(inputBusqueda==parseFloat(inputBusqueda)){
+    alert('por favor, ingresa un nombre de pokémon válido');
+    inputBusqueda ="";
+  }
+
+}
+
+
+
 //loading pokebola
 
 
 function myFunction() {
   var myVar;
-  myVar = setTimeout(showPage, 3000);
+  myVar = setTimeout(showPage, 2000);
 }
 myFunction()
 
