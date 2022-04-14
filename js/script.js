@@ -81,12 +81,8 @@ function addToFavClicked(id){
   if (boolean){
     encontrar.num += 1;
 
-
-
   }else{
       favoritos.push(encontrar);
-
-
   }
 }
 
@@ -113,7 +109,7 @@ function recorreFav(){
 }
 
 
-//busqueda
+//búsqueda
 
 function buscarPokemones() {
 
@@ -129,15 +125,7 @@ function buscarPokemones() {
       const transformarNombre = nuevoNombre.toLowerCase();
       console.log(transformarNombre)
 
-      return transformarNombre == "" ?  lista(listaPokemon) : transformarNombre.includes(nombrePokemon);
-
-      /* if (transformarNombre == ""){
-        return lista(listaPokemon); 
-      }else if (transformarNombre !== ""){
-        return transformarNombre.includes(nombrePokemon);
-      }*/
-
-
+    return transformarNombre == "" ?  lista(listaPokemon) : transformarNombre.includes(nombrePokemon);
   })
 
   filtrarPokemones.forEach(function(elemento) {
@@ -153,9 +141,7 @@ function buscarPokemones() {
     </div>`;
     cardPokemon.innerHTML += content;
 
-  }
-  )
-
+  })
 }
 
 //loading pokebola
@@ -177,56 +163,10 @@ function showPage() {
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
 /*
-function recorrerPokemon(datosPokemon){
-  document.getElementById("cardPokemon").innerHTML = "";
-
-    datosPokemon.pokemon.forEach(function (elemento) {
-       document.getElementById("cardPokemon").innerHTML += `
-       <div class="card col-3 ml-1 mb-3 text-center">
-        <img class="card-img-top" src="${elemento.img}" alt="Card image cap">
-        <div class="card-body">
-          <h5 class="card-title">${elemento.name}</h5>
-          <p class="precio">$${elemento.type}</p>
-          <btn class="btn btn-primary" onclick="agregarCarrito(${elemento.id})" >Añadir a favoritos</btn>
-        </div>
-      </div>`;
-     });
-}
-recorrerPokemon(datosPokemon)
-*/
-
-
-
-//Prueba lista
-/*
-function recorrerPokemon(datosPokemon) {
-  pokemon.innerHTML = "";
-  datosPokemon.pokemon.forEach((elemento) => {
-    pokemon.innerHTML += `
-        <tr>
-            <td scope="row">${elemento.num}</td>
-            <td><img src="${elemento.img}" alt="elemento.name"></td>
-            <td>${elemento.name}</td>
-            <td>${elemento.type}</td>
-        </tr>
-        `;
-  });
-}
-
-function borrarTabla(){
-    contenido.innerHTML = ""
+seria algo asi cesar o no ?
+const phoneValidation = (value) => {
+  const phoneRegex = /^[0-9]{9}$/
+  return phoneRegex.test(value)
 }
 */
