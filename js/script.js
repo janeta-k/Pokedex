@@ -19,6 +19,30 @@ let listaPokemon = [];
 
 let favoritos = [];
 
+/*
+class PerfilPokemon{
+  constructor(id, name, img, type){
+    this.id = id;
+    this.name = name;
+    this.img = img;
+    this.type = type;
+  }
+  get obtenerId(){
+    return this.id;
+  }
+  get obtenerName(){
+     return this.name;
+  }
+  get obtenerImg(){
+    return this.img;
+  }
+  get obtenerType(){
+    return this.type;
+  }
+}
+
+*/
+
 
 
 const cardPokemon = document.getElementById('cardPokemon');
