@@ -1,6 +1,6 @@
 
 
-let pokemon = document.getElementById("pokemon");
+//let pokemon = document.getElementById("pokemon");
 
 function getlistaPokemon(){
   fetch("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json")
@@ -186,7 +186,7 @@ function validacion() {
 
 //loading pokebola
 
-
+/*
 function myFunction() {
   var myVar;
   myVar = setTimeout(showPage, 2000);
@@ -197,16 +197,60 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("myDiv").style.display = "block";
 }
-
-
-
-
-
-
-/*
-seria algo asi cesar o no ?
-const phoneValidation = (value) => {
-  const phoneRegex = /^[0-9]{9}$/
-  return phoneRegex.test(value)
-}
 */
+
+
+
+
+//ABpro 3
+
+function getlistaAbpro(){
+  fetch("./js/abpro3.json")
+  .then(resultadoLoremIpsun => resultadoLoremIpsun.json())
+  .then(respuesta => {
+   // fetch("../services/contributors.JSON")
+
+    listaLorem = respuesta
+    recorrerLorem()
+    console.log(respuesta)
+
+  })
+
+}
+
+let listaLorem = [];
+console.log(getlistaAbpro())
+
+const cardLorem = document.getElementById('cardLorem');
+
+function recorrerLorem(){
+
+  cardLorem.innerHTML="";
+
+  listaLorem.forEach(elemento => {
+
+    const template = `<div class="card  mb-2 ml-2" style="width: 18rem;">
+        <img class="card-img-top" style="width:150px; display:block;margin:auto;" src="">
+        <div class="card-body text-center">
+          <h5 class="card-title">${elemento.title}</h5>
+          <p class="card-text">Tipo: ${elemento.body}</p>
+          <button type="button" class="btn btn-primary mb-3" data-toggle="modal" data-target="#exampleModal" onclick="info(${elemento.id})">Ver detalles</button>
+        </div>
+      </div>`;
+      cardLorem.innerHTML += template;
+
+  })
+};
+
+
+
+//Modal con los detalles de los pokemones
+
+function info(id){
+  let userId = document.querySelector('.userId');
+  
+  const object = listaLorem.find(param=>param.id==id);
+
+  userId.innerHTML = (`ID: ${object.userId}`);
+
+}
