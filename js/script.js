@@ -185,8 +185,8 @@ function validacion() {
 
 
 //loading pokebola
-
 /*
+
 function myFunction() {
   var myVar;
   myVar = setTimeout(showPage, 2000);
@@ -208,18 +208,29 @@ function getlistaAbpro(){
   fetch("./js/abpro3.json")
   .then(resultadoLoremIpsun => resultadoLoremIpsun.json())
   .then(respuesta => {
-   // fetch("../services/contributors.JSON")
 
-    listaLorem = respuesta
-    recorrerLorem()
+    //listaLorem = respuesta
+    //console.log(listaLorem)
+    listaLorem=respuesta
+
     console.log(respuesta)
 
-  })
+    loremSlice=respuesta.slice(0, 20)
 
+    recorrerLorem()
+    recorrerTitulos()
+  })
+  .catch(error => { error});
 }
 
+let loremSlice = [];
+console.log(loremSlice)
+
 let listaLorem = [];
-console.log(getlistaAbpro())
+//console.log(listaLorem)
+
+
+
 
 const cardLorem = document.getElementById('cardLorem');
 
@@ -242,9 +253,7 @@ function recorrerLorem(){
   })
 };
 
-
-
-//Modal con los detalles de los pokemones
+//Modal con los detalles
 
 function info(id){
   let userId = document.querySelector('.userId');
@@ -254,3 +263,37 @@ function info(id){
   userId.innerHTML = (`ID: ${object.userId}`);
 
 }
+
+
+//card de los primeros 20 títulos
+
+const cardTitulos  = document.getElementById('cardTitulos');
+
+function recorrerTitulos(){
+
+  cardTitulos.innerHTML="";
+
+  loremSlice.forEach(elemento => {
+
+    const template = `<div class="card  mb-2 ml-2" style="width: 18rem;">
+        <img class="card-img-top" style="width:150px; display:block;margin:auto;" src="">
+        <div class="card-body text-center">
+          <h5 class="card-title">${elemento.title}</h5>
+        </div>
+      </div>`;
+      cardTitulos.innerHTML += template;
+
+  })
+};
+
+
+const delay = time => new Promise(resolveCallback => setTimeout(resolveCallback, time));
+
+delay(3000)
+  .then(() => console.log(`Información enviada`))
+  .catch(() => console.log(`Retardo fallido`));
+
+
+
+
+
