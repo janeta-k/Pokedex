@@ -185,7 +185,7 @@ function validacion() {
 
 
 //loading pokebola
-/*
+
 
 function myFunction() {
   var myVar;
@@ -197,14 +197,42 @@ function showPage() {
   document.getElementById("loader").style.display = "none";
   document.getElementById("myDiv").style.display = "block";
 }
-*/
+
 
 
 
 
 //ABpro 3
 
-function getlistaAbpro(){
+const listaABpro = async () => {
+  try {
+    const respuesta = await fetch("./js/abpro3.json")
+    const datosLorem = await respuesta.json()
+    const datosTodos = datosLorem
+    console.log(datosTodos)
+    const filtroDatos = datosTodos.slice(0, 20)
+    console.log(filtroDatos)
+
+    loremSlice = filtroDatos
+    listaLorem = datosTodos
+
+    recorrerLorem()
+    recorrerTitulos()
+
+  } catch (error) {
+    console.log(error.message)
+  }
+}
+
+listaABpro()
+
+let loremSlice = [];
+//console.log(loremSlice)
+
+let listaLorem = [];
+//console.log(listaLorem)
+
+/*function getlistaAbpro(){
   fetch("./js/abpro3.json")
   .then(resultadoLoremIpsun => resultadoLoremIpsun.json())
   .then(respuesta => {
@@ -219,15 +247,13 @@ function getlistaAbpro(){
 
     recorrerLorem()
     recorrerTitulos()
+
+    
   })
   .catch(error => { error});
-}
+}*/
 
-let loremSlice = [];
-console.log(loremSlice)
 
-let listaLorem = [];
-//console.log(listaLorem)
 
 
 
@@ -287,11 +313,23 @@ function recorrerTitulos(){
 };
 
 
-const delay = time => new Promise(resolveCallback => setTimeout(resolveCallback, time));
+//const delay = time => new Promise(resolveCallback => setTimeout(resolveCallback, time));
 
-delay(3000)
-  .then(() => console.log(`Información enviada`))
-  .catch(() => console.log(`Retardo fallido`));
+const delay = new Promise ((resolve) => {
+  setTimeout(()=>{
+    resolve('información enviada')
+  }, 3000) 
+});
+
+
+const mensaje = async () =>{
+  const response = await delay
+  const data = await response
+  console.log(data)
+}
+mensaje()
+
+
 
 
 
