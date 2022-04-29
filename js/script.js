@@ -1,23 +1,26 @@
 
 
-//let pokemon = document.getElementById("pokemon");
+const getListaPokemon = async () =>{
+  try{
+    const respuesta = await fetch("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json");
+    const datosPokemon = await respuesta.json();
+    const todosLosPokemon = datosPokemon;
 
-function getlistaPokemon(){
-  fetch("https://raw.githubusercontent.com/Biuni/PokemonGO-Pokedex/master/pokedex.json")
-  .then(resultadoPokemon => resultadoPokemon.json())
-  .then(response => {
+    listaPokemon = todosLosPokemon.pokemon;
+    recorrerPokemon();
+    addToFavClicked(id);
+    recorreFav(favoritos);
 
-    listaPokemon = response.pokemon
-    recorrerPokemon()
-    addToFavClicked(id)
-    recorreFav(favoritos)
-
-  })
-
+  }catch (error){
+    console.log(error.message);
+  }
 }
+getListaPokemon();
+
 let listaPokemon = [];
 
 let favoritos = [];
+
 
 
 
@@ -54,7 +57,7 @@ function detalles(id){
   let height = document.querySelector('.height');
   let weight = document.querySelector('.weight');
   let weaknesses = document.querySelector('.weaknesses');
-  //let evolution = document.querySelector('.evolution');
+ 
 
   const object = listaPokemon.find(pokemon=>pokemon.id==id);
 
@@ -62,12 +65,7 @@ function detalles(id){
   height.innerHTML = (`altura: ${object.height}`);
   weight.innerHTML = (`peso: ${object.weight}`);
   weaknesses.innerHTML = (`debilidades: ${object.weaknesses}`);
-  //evolution.innerHTML += object.next_evolution.map(elemento => `${elemento.name} `) ;
-
-  console.log (object)
-
-
-  console.log(id)
+  
 }
 
 
@@ -78,7 +76,7 @@ function addToFavClicked(id){
   const encontrar= listaPokemon.find(listaPokemon=>listaPokemon.id==id);
 
   const boolean= favoritos.some(listaPokemon=>listaPokemon.id==id);
-  console.log(boolean)
+  
   if (boolean){
     encontrar.num += 1;
 
@@ -124,7 +122,6 @@ function buscarPokemones() {
   const filtrarPokemones = listaPokemon.filter(elemento => {
       const nuevoNombre = elemento.name
       const transformarNombre = nuevoNombre.toLowerCase();
-      console.log(transformarNombre)
 
     return transformarNombre == "" ?  lista(listaPokemon) : transformarNombre.includes(nombrePokemon);
   })
@@ -183,22 +180,20 @@ function showPage() {
 
 const listaABpro = async () => {
   try {
-    const respuesta = await fetch("https://jsonplaceholder.typicode.com/posts")
-    const datosLorem = await respuesta.json()
-   
-    const datosTodos = datosLorem
+    const respuesta = await fetch("https://jsonplaceholder.typicode.com/posts");
+    const datosLorem = await respuesta.json();
+    const datosTodos = datosLorem;
   
-    const filtroDatos = datosTodos.slice(0, 20)
-    
+    const filtroDatos = datosTodos.slice(0, 20);
 
-    loremSlice = filtroDatos
-    listaLorem = datosTodos
+    loremSlice = filtroDatos;
+    listaLorem = datosTodos;
 
-    recorrerLorem()
-    recorrerTitulos()
+    recorrerLorem();
+    recorrerTitulos();
 
   } catch (error) {
-    console.log(error.message)
+    console.log(error.message);
   }
 }
 listaABpro()
@@ -239,14 +234,14 @@ const infoModal = async (id) =>{
     return data
 
   }catch (error) {
-    console.log(error.message)
+    console.log(error.message);
 }}
 
 const info  = async (id) =>{
   //debugger
   let userId = document.querySelector('.userId');
   
-  const object = await infoModal(id)
+  const object = await infoModal(id);
 
   userId.innerHTML = (`ID: ${object.id}`);
 
@@ -289,7 +284,7 @@ const mensaje = async () =>{
   const data = await response
   console.log(data)
 }
-mensaje()
+mensaje();
 
 
 
