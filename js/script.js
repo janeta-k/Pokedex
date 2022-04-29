@@ -19,29 +19,6 @@ let listaPokemon = [];
 
 let favoritos = [];
 
-/*
-class PerfilPokemon{
-  constructor(id, name, img, type){
-    this.id = id;
-    this.name = name;
-    this.img = img;
-    this.type = type;
-  }
-  get obtenerId(){
-    return this.id;
-  }
-  get obtenerName(){
-     return this.name;
-  }
-  get obtenerImg(){
-    return this.img;
-  }
-  get obtenerType(){
-    return this.type;
-  }
-}
-
-*/
 
 
 
@@ -202,16 +179,17 @@ function showPage() {
 
 
 
-//ABpro 3
+//ABpro 5
 
 const listaABpro = async () => {
   try {
-    const respuesta = await fetch("./js/abpro3.json")
+    const respuesta = await fetch("https://jsonplaceholder.typicode.com/posts")
     const datosLorem = await respuesta.json()
+   
     const datosTodos = datosLorem
-    console.log(datosTodos)
+  
     const filtroDatos = datosTodos.slice(0, 20)
-    console.log(filtroDatos)
+    
 
     loremSlice = filtroDatos
     listaLorem = datosTodos
@@ -223,38 +201,11 @@ const listaABpro = async () => {
     console.log(error.message)
   }
 }
-
 listaABpro()
 
 let loremSlice = [];
-//console.log(loremSlice)
 
 let listaLorem = [];
-//console.log(listaLorem)
-
-/*function getlistaAbpro(){
-  fetch("./js/abpro3.json")
-  .then(resultadoLoremIpsun => resultadoLoremIpsun.json())
-  .then(respuesta => {
-
-    //listaLorem = respuesta
-    //console.log(listaLorem)
-    listaLorem=respuesta
-
-    console.log(respuesta)
-
-    loremSlice=respuesta.slice(0, 20)
-
-    recorrerLorem()
-    recorrerTitulos()
-
-    
-  })
-  .catch(error => { error});
-}*/
-
-
-
 
 
 
@@ -280,18 +231,29 @@ function recorrerLorem(){
 };
 
 //Modal con los detalles
+const infoModal = async (id) =>{ 
+  try{
+    const respuesta = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`)
+    
+    const data = await respuesta.json()
+    return data
 
-function info(id){
+  }catch (error) {
+    console.log(error.message)
+}}
+
+const info  = async (id) =>{
+  //debugger
   let userId = document.querySelector('.userId');
   
-  const object = listaLorem.find(param=>param.id==id);
+  const object = await infoModal(id)
 
-  userId.innerHTML = (`ID: ${object.userId}`);
+  userId.innerHTML = (`ID: ${object.id}`);
 
 }
 
 
-//card de los primeros 20 títulos
+//CARD de los primeros 20 títulos
 
 const cardTitulos  = document.getElementById('cardTitulos');
 
@@ -328,7 +290,6 @@ const mensaje = async () =>{
   console.log(data)
 }
 mensaje()
-
 
 
 
